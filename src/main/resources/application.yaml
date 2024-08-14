@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        routes:
+          - id: app-route
+            uri: ${APP_ROUTE_URI}
+            predicates:
+              - Path=/json-data/app/**
+
+          - id: create-route
+            uri: ${APP_ROUTE_URI}
+            predicates:
+              - Path=/json-data/create-app
+
+          - id: update-route
+            uri: ${APP_ROUTE_URI}
+            predicates:
+              - Path=/json-data/update-app/**
+
+          - id: delete-route
+            uri: ${APP_ROUTE_URI}
+            predicates:
+              - Path=/json-data/delete-app/**
